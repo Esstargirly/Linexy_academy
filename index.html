@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Linexy Great Minds Academy — Online Classes</title>
+<meta name="description" content="Personalized online classes for young learners — English, Maths, VR/NVR, Coding, Languages, and UK exam prep.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,700;6..12,800&display=swap" rel="stylesheet">
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          'navy-deep': '#0A1550',
+          navy: '#122268',
+          blue: {
+            DEFAULT: '#2E4FD1',
+            light: '#6C8CF5',
+          },
+          gold: {
+            DEFAULT: '#F7B733',
+            dark: '#E0980C',
+          },
+          cream: '#FFF8EC',
+        },
+        fontFamily: {
+          display: ['"Baloo 2"', 'sans-serif'],
+          body: ['"Nunito Sans"', 'sans-serif'],
+        },
+        boxShadow: {
+          'btn-gold': '0 4px 0 #E0980C',
+          'btn-wa': '0 4px 0 #1aa651',
+        },
+      },
+    },
+  };
+</script>
+
+<style>
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) {
+    * { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+  }
+  .btn-press:active { transform: translateY(2px); box-shadow: 0 1px 0 var(--tw-shadow-color, #E0980C); }
+  .float { animation: floaty 5s ease-in-out infinite; }
+  @keyframes floaty { 0%,100%{ transform: translateY(0);} 50%{ transform: translateY(-6px);} }
+  .reveal { opacity: 0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease; }
+  .reveal.in { opacity: 1; transform: translateY(0); }
+  #modal-backdrop { transition: opacity .25s ease; }
+  #modal-panel { transition: opacity .25s ease, transform .25s ease; }
+</style>
+</head>
+
+<body class="font-body bg-cream text-navy-deep antialiased">
+<div class="max-w-[480px] mx-auto min-h-screen bg-cream relative overflow-hidden">
+
+  <!-- ===================== HEADER ===================== -->
+  <header id="site-header" class="sticky top-0 z-40 flex items-center justify-between gap-3 px-4 py-3 bg-navy-deep/90 backdrop-blur-md border-b border-gold/25 transition-all duration-300">
+    <div class="flex items-center gap-2.5 min-w-0">
+      <div class="flex-none w-9 h-9 rounded-full grid place-items-center shadow-[0_0_0_2px_theme(colors.gold.DEFAULT)]"
+           style="background: radial-gradient(circle at 35% 30%, #6C8CF5, #122268 70%);">
+        <svg viewBox="0 0 24 24" fill="none" class="w-5 h-5">
+          <path d="M12 3c-3 2-3 5-1 6-3 0-5 2-5 5 2-1 4-1 5 1 1-2 3-2 5-1 0-3-2-5-5-5 2-1 2-4-1-6"
+                stroke="#F7B733" stroke-width="1.3" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="leading-tight">
+        <p class="font-display font-bold text-white text-[12.5px]">Linexy Great Minds Academy</p>
+        <p class="font-display text-gold text-[9px] font-semibold uppercase tracking-[0.14em] mt-0.5">Online Classes</p>
+      </div>
+    </div>
+    <button data-open-modal
+      class="flex-none font-display font-bold text-[12.5px] text-navy-deep bg-gold rounded-full px-4 py-2.5 shadow-btn-gold btn-press transition-transform whitespace-nowrap">
+      Book Now
+    </button>
+  </header>
+
+  <!-- ===================== HERO ===================== -->
+  <section class="relative overflow-hidden px-6 pt-10 pb-12"
+           style="background: radial-gradient(circle at 80% 0%, rgba(108,140,245,0.55), transparent 55%), linear-gradient(160deg, #0A1550 0%, #122268 45%, #2E4FD1 100%);">
+    <svg class="absolute inset-0 w-full h-full opacity-50 pointer-events-none" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+      <g stroke="#F7B733" stroke-width="0.6" opacity="0.5">
+        <line x1="30" y1="40" x2="110" y2="80"/><line x1="110" y1="80" x2="90" y2="150"/>
+        <line x1="110" y1="80" x2="200" y2="60"/><line x1="200" y1="60" x2="280" y2="110"/>
+        <line x1="280" y1="110" x2="350" y2="70"/><line x1="90" y1="150" x2="180" y2="190"/>
+        <line x1="180" y1="190" x2="270" y2="170"/><line x1="270" y1="170" x2="330" y2="220"/>
+      </g>
+      <g fill="#F7B733">
+        <circle cx="30" cy="40" r="2.2"/><circle cx="110" cy="80" r="2.6"/><circle cx="90" cy="150" r="2.2"/>
+        <circle cx="200" cy="60" r="2.2"/><circle cx="280" cy="110" r="2.6"/><circle cx="350" cy="70" r="2.2"/>
+        <circle cx="180" cy="190" r="2.2"/><circle cx="270" cy="170" r="2.6"/><circle cx="330" cy="220" r="2.2"/>
+      </g>
+    </svg>
+
+    <div class="relative z-10">
+      <div class="inline-flex items-center gap-1.5 font-display text-[11px] font-semibold uppercase tracking-[0.16em] text-blue-100 mb-2.5">
+        <span class="w-1.5 h-1.5 rounded-full bg-gold shadow-[0_0_8px_2px_#F7B733]"></span>
+        Personalized Online Learning
+      </div>
+      <h1 class="font-display font-extrabold text-white text-[40px] leading-[1.02]">
+        Great Minds
+        <span class="block text-gold text-[46px]">Online Classes</span>
+      </h1>
+      <p class="mt-3.5 text-[15px] leading-relaxed text-blue-100/90 max-w-[34ch]">
+        One-on-one attention, small group classes and focused exam prep, helping young learners build skills, confidence and real results, from anywhere.
+      </p>
+      <div class="mt-6 flex flex-wrap gap-2.5">
+        <button data-open-modal
+          class="font-display font-bold text-[14px] bg-gold text-navy-deep rounded-full px-5 py-3.5 shadow-btn-gold btn-press inline-flex items-center gap-2">
+          Enroll Now →
+        </button>
+        <a href="#subjects"
+          class="font-display font-bold text-[14px] text-white rounded-full px-5 py-3.5 border-[1.5px] border-white/45 inline-flex items-center gap-2">
+          See Subjects
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SUBJECT ORBIT ===================== -->
+  <section id="subjects" class="px-5 pt-11 pb-8 reveal">
+    <div class="text-center mb-6">
+      <p class="font-display text-[11px] font-bold uppercase tracking-[0.16em] text-gold-dark">What We Teach</p>
+      <h2 class="font-display font-bold text-[24px] text-navy-deep mt-1.5">A world of subjects,<br>one great mind at a time</h2>
+    </div>
+
+    <div class="relative w-full max-w-[340px] mx-auto aspect-square">
+      <div class="absolute inset-0 rounded-full border-[1.5px] border-dashed border-gold/35"></div>
+      <div class="absolute inset-[16%] rounded-full border-[1.5px] border-dashed border-gold/35"></div>
+      <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[34%] aspect-square rounded-full grid place-items-center text-center p-[6%] float"
+           style="background: radial-gradient(circle at 35% 30%, #6C8CF5, #122268 75%); box-shadow: 0 0 0 5px rgba(247,183,51,0.25), 0 8px 20px rgba(10,21,80,0.25);">
+        <span class="font-display text-white font-bold text-[11px] leading-tight">LINEXY<br>GREAT MINDS</span>
+      </div>
+
+      <button data-node class="orbit-node" style="left:50%; top:2%;">English</button>
+      <button data-node class="orbit-node" style="left:88%; top:22%;">Maths</button>
+      <button data-node class="orbit-node" style="left:96%; top:60%;">Coding</button>
+      <button data-node class="orbit-node" style="left:78%; top:92%;">Phonics</button>
+      <button data-node class="orbit-node" style="left:22%; top:92%;">VR &amp; NVR</button>
+      <button data-node class="orbit-node" style="left:4%; top:60%;">Languages</button>
+      <button data-node class="orbit-node" style="left:12%; top:22%;">11+ Prep</button>
+    </div>
+
+    <div class="grid grid-cols-2 gap-2.5 mt-8">
+      <div class="subj-card"><div class="ic">E</div><div><p class="txt">English</p><p class="sub">Reading &amp; writing</p></div></div>
+      <div class="subj-card"><div class="ic">M</div><div><p class="txt">Maths</p><p class="sub">Core &amp; problem solving</p></div></div>
+      <div class="subj-card"><div class="ic">VR</div><div><p class="txt">VR &amp; NVR</p><p class="sub">Verbal reasoning</p></div></div>
+      <div class="subj-card"><div class="ic">Ph</div><div><p class="txt">Phonics</p><p class="sub">Early literacy</p></div></div>
+      <div class="subj-card"><div class="ic">◈</div><div><p class="txt">Coding</p><p class="sub">Beginner to advanced</p></div></div>
+      <div class="subj-card"><div class="ic">🌍</div><div><p class="txt">Spanish, French &amp; German</p><p class="sub">Global languages</p></div></div>
+      <div class="subj-card col-span-2"><div class="ic">🇳🇬</div><div><p class="txt">Igbo, Hausa &amp; Yoruba</p><p class="sub">Nigerian languages</p></div></div>
+    </div>
+  </section>
+
+  <!-- ===================== EXAM BANNER ===================== -->
+  <div class="mx-5 mt-2 rounded-[18px] p-5 text-white relative overflow-hidden flex gap-3.5 items-start reveal"
+       style="background: linear-gradient(120deg, #0A1550, #2E4FD1);">
+    <div class="absolute -right-8 -top-8 w-32 h-32 rounded-full bg-gold/15"></div>
+    <div class="text-2xl flex-none">🇬🇧</div>
+    <div class="relative">
+      <h3 class="font-display text-[16px] mb-1">UK Exam Prep</h3>
+      <p class="text-[12.5px] text-blue-100 leading-relaxed">Focused, structured preparation for SATs and 11 Plus exams, built to build confidence, not just cover content.</p>
+    </div>
+  </div>
+
+  <!-- ===================== CLASS TYPES ===================== -->
+  <div class="flex gap-2.5 mx-5 mt-4 reveal">
+    <div class="flex-1 bg-gold text-navy-deep rounded-[14px] px-3 py-3.5 text-center">
+      <strong class="block font-display text-[13.5px]">Private Classes</strong>
+      <span class="block text-[10.5px] font-bold opacity-75 mt-0.5">1-on-1 attention</span>
+    </div>
+    <div class="flex-1 bg-gold text-navy-deep rounded-[14px] px-3 py-3.5 text-center">
+      <strong class="block font-display text-[13.5px]">Group Classes</strong>
+      <span class="block text-[10.5px] font-bold opacity-75 mt-0.5">Learn together</span>
+    </div>
+  </div>
+
+  <!-- ===================== ABOUT ===================== -->
+  <section class="px-6 py-10 mt-9 bg-navy-deep text-white reveal">
+    <h2 class="font-display text-[22px] leading-snug">At <b class="text-gold">Linexy Great Minds Academy</b>, every lesson is built around the learner.</h2>
+    <p class="mt-3 text-[13.5px] text-blue-100/80 leading-relaxed">We combine one-on-one attention, small group interaction and focused exam prep to help learners gain skills, confidence and measurable results, whether they're catching up, keeping up, or reaching ahead.</p>
+  </section>
+
+  <!-- ===================== ENROLL ===================== -->
+  <section class="px-6 pt-9 pb-12 text-center reveal">
+    <p class="font-display text-[11px] font-bold uppercase tracking-[0.16em] text-gold-dark">Ready to Start?</p>
+    <h2 class="font-display font-bold text-[24px] text-navy-deep mt-1.5">Let's grow a great mind</h2>
+    <p class="mt-2.5 text-[13.5px] text-navy/60">Book a class below, or message us on WhatsApp, private and group classes available now.</p>
+
+    <div class="flex flex-col items-center gap-3 mt-5">
+      <button data-open-modal
+        class="font-display font-bold text-[15px] bg-gold text-navy-deep rounded-full px-6 py-4 shadow-btn-gold btn-press inline-flex items-center gap-2.5">
+        Book a Class
+      </button>
+      <a href="https://wa.me/447892669833" target="_blank" rel="noopener"
+         class="font-display font-bold text-[14px] bg-[#25D366] text-white rounded-full px-5 py-3.5 shadow-btn-wa btn-press inline-flex items-center gap-2.5">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="#fff"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.28-1.38a9.9 9.9 0 0 0 4.76 1.21h.01c5.46 0 9.9-4.45 9.9-9.9C21.96 6.45 17.5 2 12.04 2Zm0 18.06h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.13.82.84-3.05-.2-.31a8.14 8.14 0 0 1-1.26-4.37c0-4.52 3.68-8.2 8.21-8.2 2.19 0 4.25.86 5.8 2.4a8.14 8.14 0 0 1 2.4 5.81c0 4.52-3.68 8.2-8.16 8.23Z"/></svg>
+        WhatsApp Us
+      </a>
+    </div>
+  </section>
+
+  <footer class="text-center px-5 py-6 text-[11px] text-navy/40 border-t border-navy/10">
+    Linexy Great Minds Academy · Online classes for young learners
+  </footer>
+
+</div>
+
+<!-- ===================== BOOKING MODAL ===================== -->
+<div id="modal-root" class="fixed inset-0 z-50 hidden">
+  <div id="modal-backdrop" data-close-modal class="absolute inset-0 bg-navy-deep/60 backdrop-blur-sm opacity-0"></div>
+
+  <div class="relative min-h-screen flex items-end sm:items-center justify-center p-0 sm:p-4">
+    <div id="modal-panel"
+         class="relative w-full sm:max-w-[420px] max-h-[92vh] overflow-y-auto bg-cream rounded-t-[24px] sm:rounded-[24px] shadow-2xl opacity-0 translate-y-8 scale-[0.98]"
+         role="dialog" aria-modal="true" aria-labelledby="modal-title">
+
+      <div class="sticky top-0 bg-cream/95 backdrop-blur px-5 pt-5 pb-3 flex items-start justify-between border-b border-navy-deep/10">
+        <div>
+          <p class="font-display text-[11px] font-bold uppercase tracking-[0.14em] text-gold-dark">Book a Class</p>
+          <h3 id="modal-title" class="font-display font-bold text-[19px] text-navy-deep mt-0.5">Tell us what you need</h3>
+        </div>
+        <button data-close-modal aria-label="Close" class="flex-none w-8 h-8 rounded-full grid place-items-center bg-navy-deep/5 text-navy-deep hover:bg-navy-deep/10 transition-colors">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+
+      <!-- Form state -->
+      <form id="booking-form" class="px-5 py-5 space-y-4">
+        <div>
+          <label class="field-label" for="f-name">Parent / Learner name</label>
+          <input required id="f-name" name="name" type="text" placeholder="e.g. Ada Obi" class="field-input">
+        </div>
+
+        <div>
+          <label class="field-label" for="f-email">Your email</label>
+          <input required id="f-email" name="email" type="email" placeholder="you@example.com" class="field-input">
+        </div>
+
+        <div>
+          <label class="field-label" for="f-phone">Phone / WhatsApp <span class="text-navy-deep/40 font-normal normal-case">(optional)</span></label>
+          <input id="f-phone" name="phone" type="tel" placeholder="+44 or +234..." class="field-input">
+        </div>
+
+        <div>
+          <label class="field-label" for="f-subject">Subject of interest</label>
+          <select required id="f-subject" name="subject" class="field-input">
+            <option value="" disabled selected>Choose a subject</option>
+            <option>English</option>
+            <option>Maths</option>
+            <option>VR &amp; NVR</option>
+            <option>Phonics</option>
+            <option>Coding</option>
+            <option>Spanish, French &amp; German</option>
+            <option>Igbo, Hausa &amp; Yoruba</option>
+            <option>11+ / SATs Exam Prep</option>
+          </select>
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="field-label" for="f-type">Class type</label>
+            <select required id="f-type" name="class_type" class="field-input">
+              <option value="" disabled selected>Select</option>
+              <option>Private</option>
+              <option>Group</option>
+            </select>
+          </div>
+          <div>
+            <label class="field-label" for="f-date">Preferred date</label>
+            <input required id="f-date" name="preferred_date" type="date" class="field-input">
+          </div>
+        </div>
+
+        <div>
+          <label class="field-label" for="f-message">Anything else? <span class="text-navy-deep/40 font-normal normal-case">(optional)</span></label>
+          <textarea id="f-message" name="message" rows="3" placeholder="Learner's age, goals, availability..." class="field-input resize-none"></textarea>
+        </div>
+
+        <p id="form-error" class="hidden text-[12.5px] text-red-600 font-semibold"></p>
+
+        <button type="submit" id="submit-btn"
+          class="w-full font-display font-bold text-[15px] bg-gold text-navy-deep rounded-full py-3.5 shadow-btn-gold btn-press transition-transform flex items-center justify-center gap-2">
+          <span id="submit-label">Send Booking Request</span>
+        </button>
+
+        <p class="text-[11px] text-center text-navy-deep/45 pb-2">We'll reply to confirm your class, bookings are sent to our team's inbox.</p>
+      </form>
+
+      <!-- Success state -->
+      <div id="success-state" class="hidden px-6 py-12 text-center">
+        <div class="w-16 h-16 mx-auto rounded-full bg-gold/15 grid place-items-center mb-4">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M4 12l6 6L20 6" stroke="#E0980C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h3 class="font-display font-bold text-[19px] text-navy-deep">Request sent!</h3>
+        <p class="text-[13.5px] text-navy-deep/60 mt-2 leading-relaxed">Thanks, we've received your booking request and will email you shortly to confirm.</p>
+        <button data-close-modal class="mt-6 font-display font-bold text-[14px] text-navy-deep border-[1.5px] border-navy-deep/20 rounded-full px-5 py-3">Done</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<style>
+  .orbit-node{
+    position:absolute; transform:translate(-50%,-50%);
+    background:#fff; border:1.5px solid rgba(247,183,51,0.35);
+    color:#0A1550; font-family:'Baloo 2', sans-serif; font-weight:600; font-size:10.5px;
+    padding:7px 11px; border-radius:999px; white-space:nowrap;
+    box-shadow:0 3px 8px rgba(10,21,80,0.08);
+    transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+    cursor:pointer;
+  }
+  .orbit-node::before{ content:''; display:inline-block; width:6px; height:6px; border-radius:50%; background:#F7B733; margin-right:5px; }
+  .orbit-node:hover, .orbit-node:focus-visible{ background:#0A1550; color:#fff; box-shadow:0 6px 16px rgba(10,21,80,0.25); outline:none; }
+  .orbit-node:hover::before, .orbit-node:focus-visible::before{ background:#F7B733; }
+  .orbit-node:not(:hover) { transform: translate(-50%,-50%); }
+
+  .subj-card{ background:#fff; border:1px solid rgba(10,21,80,0.08); border-radius:14px; padding:12px 14px; display:flex; align-items:center; gap:10px; transition: transform .18s ease, box-shadow .18s ease; }
+  .subj-card:hover{ transform: translateY(-3px); box-shadow: 0 10px 20px rgba(10,21,80,0.08); }
+  .subj-card .ic{ flex:none; width:30px; height:30px; border-radius:9px; background:#0A1550; display:flex; align-items:center; justify-content:center; color:#F7B733; font-size:14px; font-family:'Baloo 2'; }
+  .subj-card .txt{ font-size:12.5px; font-weight:700; color:#0A1550; line-height:1.2; }
+  .subj-card .sub{ font-weight:600; color:#5b6690; font-size:10px; margin-top:1px; }
+
+  .field-label{ display:block; font-family:'Baloo 2', sans-serif; font-size:11.5px; font-weight:700; text-transform:uppercase; letter-spacing:0.04em; color:#122268; margin-bottom:5px; }
+  .field-input{ width:100%; background:#fff; border:1.5px solid rgba(10,21,80,0.12); border-radius:12px; padding:11px 13px; font-family:'Nunito Sans', sans-serif; font-size:14px; color:#0A1550; transition: border-color .15s ease, box-shadow .15s ease; }
+  .field-input:focus{ outline:none; border-color:#F7B733; box-shadow: 0 0 0 3px rgba(247,183,51,0.25); }
+  .field-input:invalid:not(:placeholder-shown):not(:focus){ border-color: rgba(220,38,38,0.4); }
+
+  .spinner{ width:16px; height:16px; border-radius:50%; border:2.5px solid rgba(10,21,80,0.25); border-top-color:#0A1550; animation: spin .7s linear infinite; }
+  @keyframes spin{ to{ transform: rotate(360deg); } }
+</style>
+
+<script>
+  // ---------- FORMSPREE ENDPOINT ----------
+  // Bookings will be emailed to: linexygreatmindsacademy@gmail.com
+  // 1. Go to https://formspree.io and sign up free with that email.
+  // 2. Create a new form -> copy the endpoint (looks like https://formspree.io/f/xxxxxxxx).
+  // 3. Paste it below, replacing the placeholder.
+  const FORMSPREE_ENDPOINT = "https://formspree.io/f/REPLACE_WITH_YOUR_FORM_ID";
+
+  // ---------- MODAL LOGIC ----------
+  const modalRoot = document.getElementById('modal-root');
+  const backdrop = document.getElementById('modal-backdrop');
+  const panel = document.getElementById('modal-panel');
+  const form = document.getElementById('booking-form');
+  const successState = document.getElementById('success-state');
+  const submitBtn = document.getElementById('submit-btn');
+  const submitLabel = document.getElementById('submit-label');
+  const formError = document.getElementById('form-error');
+  let lastFocused = null;
+
+  function openModal(){
+    lastFocused = document.activeElement;
+    modalRoot.classList.remove('hidden');
+    requestAnimationFrame(() => {
+      backdrop.classList.remove('opacity-0');
+      panel.classList.remove('opacity-0','translate-y-8','scale-[0.98]');
+    });
+    document.body.style.overflow = 'hidden';
+    setTimeout(() => document.getElementById('f-name')?.focus(), 260);
+  }
+
+  function closeModal(){
+    backdrop.classList.add('opacity-0');
+    panel.classList.add('opacity-0','translate-y-8','scale-[0.98]');
+    document.body.style.overflow = '';
+    setTimeout(() => {
+      modalRoot.classList.add('hidden');
+      // reset to form view for next open
+      form.classList.remove('hidden');
+      successState.classList.add('hidden');
+      form.reset();
+      formError.classList.add('hidden');
+    }, 250);
+    lastFocused?.focus();
+  }
+
+  document.querySelectorAll('[data-open-modal]').forEach(btn => btn.addEventListener('click', openModal));
+  document.querySelectorAll('[data-close-modal]').forEach(el => el.addEventListener('click', closeModal));
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !modalRoot.classList.contains('hidden')) closeModal();
+  });
+  // simple focus trap
+  modalRoot.addEventListener('keydown', (e) => {
+    if (e.key !== 'Tab') return;
+    const focusables = panel.querySelectorAll('button, input, select, textarea, [href]');
+    if (!focusables.length) return;
+    const first = focusables[0], last = focusables[focusables.length - 1];
+    if (e.shiftKey && document.activeElement === first){ e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && document.activeElement === last){ e.preventDefault(); first.focus(); }
+  });
+
+  // ---------- FORM SUBMIT ----------
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    formError.classList.add('hidden');
+
+    if (FORMSPREE_ENDPOINT.includes('REPLACE_WITH_YOUR_FORM_ID')) {
+      formError.textContent = 'Booking form isn\'t connected yet — add your Formspree endpoint in the code.';
+      formError.classList.remove('hidden');
+      return;
+    }
+
+    submitBtn.disabled = true;
+    submitLabel.innerHTML = '<span class="spinner"></span>';
+
+    try {
+      const data = new FormData(form);
+      data.append('_subject', `New booking request — ${data.get('name')}`);
+      const res = await fetch(FORMSPREE_ENDPOINT, {
+        method: 'POST',
+        body: data,
+        headers: { Accept: 'application/json' },
+      });
+      if (!res.ok) throw new Error('Request failed');
+      form.classList.add('hidden');
+      successState.classList.remove('hidden');
+    } catch (err) {
+      formError.textContent = 'Something went wrong sending your request. Please try WhatsApp instead.';
+      formError.classList.remove('hidden');
+    } finally {
+      submitBtn.disabled = false;
+      submitLabel.textContent = 'Send Booking Request';
+    }
+  });
+
+  // ---------- ORBIT NODES -> PRESELECT SUBJECT ----------
+  document.querySelectorAll('[data-node]').forEach(node => {
+    node.addEventListener('click', () => {
+      openModal();
+      setTimeout(() => {
+        const select = document.getElementById('f-subject');
+        const label = node.textContent.trim();
+        const match = [...select.options].find(o => o.text.trim().startsWith(label.split(' ')[0]));
+        if (match) select.value = match.value;
+      }, 280);
+    });
+  });
+
+  // ---------- HEADER SHRINK ON SCROLL ----------
+  const header = document.getElementById('site-header');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 12) header.classList.add('shadow-lg');
+    else header.classList.remove('shadow-lg');
+  }, { passive: true });
+
+  // ---------- SCROLL REVEAL ----------
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('in'); });
+  }, { threshold: 0.12 });
+  revealEls.forEach(el => io.observe(el));
+
+  // set min date on date input to today
+  document.getElementById('f-date').min = new Date().toISOString().split('T')[0];
+</script>
+</body>
+</html>
