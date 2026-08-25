@@ -337,14 +337,9 @@
 </style>
 
 <script>
-  // ---------- FORMSPREE ENDPOINT ----------
-  // Bookings will be emailed to: linexygreatmindsacademy@gmail.com
-  // 1. Go to https://formspree.io and sign up free with that email.
-  // 2. Create a new form -> copy the endpoint (looks like https://formspree.io/f/xxxxxxxx).
-  // 3. Paste it below, replacing the placeholder.
   const FORMSPREE_ENDPOINT = "https://formspree.io/f/xbgrnkaa";
 
-  // ---------- MODAL LOGIC ----------
+  // MODAL LOGIC
   const modalRoot = document.getElementById('modal-root');
   const backdrop = document.getElementById('modal-backdrop');
   const panel = document.getElementById('modal-panel');
@@ -396,7 +391,7 @@
     else if (!e.shiftKey && document.activeElement === last){ e.preventDefault(); first.focus(); }
   });
 
-  // ---------- FORM SUBMIT ----------
+  // FORM SUBMIT
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
     formError.classList.add('hidden');
@@ -430,7 +425,7 @@
     }
   });
 
-  // ---------- ORBIT NODES -> PRESELECT SUBJECT ----------
+  // ORBIT NODES -> PRESELECT SUBJECT
   document.querySelectorAll('[data-node]').forEach(node => {
     node.addEventListener('click', () => {
       openModal();
